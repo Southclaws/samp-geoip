@@ -1,0 +1,13 @@
+{
+	"user": "Southclaws",
+	"repo": "samp-geoip",
+	"entry": "test.pwn",
+	"output": "test.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib",
+		"Southclaws/pawn-requests",
+		"pawn-lang/YSI-Includes",
+		"BigETI/pawn-map",
+		"Southclaws/samp-logger"
+	]
+}
