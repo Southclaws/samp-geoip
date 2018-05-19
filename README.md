@@ -5,6 +5,13 @@
 A simple library that provides information from [IPHub](https://iphub.info/) for
 connected players.
 
+This package is built using the Requests package which is used to perform a web
+request to IPHub's API when a player connects.
+
+Currently the results are not cached so you may encounter rate limits if your
+server has many players connecting per minute. This may be addressed in future
+by using Redis as a cache.
+
 ## Installation
 
 Simply install to your project:
