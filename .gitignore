@@ -44,3 +44,5 @@ server_log.txt
 #
 
 *.sublime-workspace
+
+iphub_key.inc
