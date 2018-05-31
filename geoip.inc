@@ -50,6 +50,7 @@ static RequestsClient:Client;
 static Map:RequestToPlayer;
 
 forward OnGeoResponse(Request:id, E_HTTP_STATUS:status, Node:node);
+forward OnGeoDataReady(playerid);
 
 
 // -
@@ -217,4 +218,6 @@ public OnGeoResponse(Request:id, E_HTTP_STATUS:status, Node:node) {
         _s("isp", GeoData[playerid][E_GEO_ISP]),
         _i("block", GeoData[playerid][E_GEO_BLOCK])
     );
+    
+    CallLocalFunction("OnGeoDataReady", "%d", playerid);
 }
