@@ -44,6 +44,10 @@ The rest of the API corresponds directly to the
 *   `GetPlayerISP(playerid, output[], len = sizeof output)`
 *   `GetPlayerIPBlock(playerid, &block)`
 
+There is also an event that is called when the data is available:
+
+*   `OnGeoDataReady(playerid)`
+
 ## Testing
 
 To test, first you must build build the package with the file `iphub_key.inc`
