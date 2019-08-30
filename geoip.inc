@@ -161,7 +161,7 @@ hook OnPlayerDisconnect(playerid, reason) {
     GeoData[playerid][E_GEO_BLOCK] = 0;
 }
 
-_geoip_doRequest(addr[16], playerid) {
+_geoip_doRequest(const addr[16], playerid) {
     dbg("geoip", "requesting ip data",
         _s("addr", addr),
         _i("playerid", playerid));
