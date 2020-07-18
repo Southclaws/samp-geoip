@@ -162,9 +162,9 @@ hook OnPlayerDisconnect(playerid, reason) {
 }
 
 _geoip_doRequest(const addr[16], playerid) {
-    dbg("geoip", "requesting ip data",
-        _s("addr", addr),
-        _i("playerid", playerid));
+    Logger_Dbg("geoip", "requesting ip data",
+        Logger_S("addr", addr),
+        Logger_I("playerid", playerid));
 
     new Request:r = RequestJSON(
         Client,
@@ -177,13 +177,13 @@ _geoip_doRequest(const addr[16], playerid) {
 }
 
 public OnGeoResponse(Request:id, E_HTTP_STATUS:status, Node:node) {
-    dbg("geoip", "received ip data",
-        _i("request", _:id),
-        _i("status", _:status));
+    Logger_Dbg("geoip", "received ip data",
+        Logger_I("request", _:id),
+        Logger_I("status", _:status));
 
     if(status != HTTP_STATUS_OK) {
-        err("iphub response status code was not OK",
-            _i("status", _:status));
+        Logger_Err("iphub response status code was not OK",
+            Logger_I("status", _:status));
         return;
     }
 
@@ -192,8 +192,8 @@ public OnGeoResponse(Request:id, E_HTTP_STATUS:status, Node:node) {
         return;
     }
 
-    dbg("geoip", "determined target player for ip data",
-        _i("playerid", playerid));
+    Logger_Dbg("geoip", "determined target player for ip data",
+        Logger_I("playerid", playerid));
 
     // {
     //     "ip": "8.8.8.8",
@@ -211,12 +211,12 @@ public OnGeoResponse(Request:id, E_HTTP_STATUS:status, Node:node) {
     JsonGetString(node, "isp", GeoData[playerid][E_GEO_ISP], 128);
     JsonGetInt(node, "block", GeoData[playerid][E_GEO_BLOCK]);
 
-    dbg("geoip", "extracted ip data for player",
-        _s("code", GeoData[playerid][E_GEO_CODE]),
-        _s("name", GeoData[playerid][E_GEO_NAME]),
-        _i("asn", GeoData[playerid][E_GEO_ASN]),
-        _s("isp", GeoData[playerid][E_GEO_ISP]),
-        _i("block", GeoData[playerid][E_GEO_BLOCK])
+    Logger_Dbg("geoip", "extracted ip data for player",
+        Logger_S("code", GeoData[playerid][E_GEO_CODE]),
+        Logger_S("name", GeoData[playerid][E_GEO_NAME]),
+        Logger_I("asn", GeoData[playerid][E_GEO_ASN]),
+        Logger_S("isp", GeoData[playerid][E_GEO_ISP]),
+        Logger_I("block", GeoData[playerid][E_GEO_BLOCK])
     );
     
     CallLocalFunction("OnGeoDataReady", "%d", playerid);

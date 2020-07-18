@@ -2,7 +2,7 @@
 #include "geoip"
 
 main() {
-    logger_debug("geoip", true);
+    Logger_ToggleDebug("geoip", true);
 }
 
 public OnPlayerCommandText(playerid, cmdtext[]) {
