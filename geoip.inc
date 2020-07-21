@@ -140,7 +140,7 @@ stock GetPlayerIPBlock(playerid, &block) {
 hook OnScriptInit() {
     new key[] = IPHUB_KEY;
     if(strlen(key) == 0) {
-        fatal("IPHUB_KEY must be set for geoip library");
+        Logger_Fatal("IPHUB_KEY must be set for geoip library");
     }
 
     Client = RequestsClient("http://v2.api.iphub.info/ip/", RequestHeaders("X-Key", key));
